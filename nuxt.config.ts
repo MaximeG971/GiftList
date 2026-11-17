@@ -4,7 +4,12 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase"],
 
   supabase: {
-    redirect: false,
+    redirectOptions: {
+      login: "/login",
+      callback: "/confirm",
+      exclude: ["/register", "/forgot-password", "/reset-password"],
+      saveRedirectToCookie: true,
+    },
   },
 
   typescript: {
