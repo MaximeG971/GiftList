@@ -453,6 +453,15 @@ export type Database = {
         Args: { p_first_name: string; p_token_hash: string; p_user_id: string }
         Returns: Json
       }
+      create_child_profile: {
+        Args: {
+          p_actor: string
+          p_family: string
+          p_first_name: string
+          p_manager_member_ids: string[]
+        }
+        Returns: string
+      }
       create_family_with_admin: {
         Args: {
           p_accent_color?: string
@@ -461,6 +470,39 @@ export type Database = {
           p_user_id: string
         }
         Returns: string
+      }
+      delete_profile: {
+        Args: { p_actor: string; p_profile: string }
+        Returns: undefined
+      }
+      remove_member: {
+        Args: { p_actor: string; p_family: string; p_member: string }
+        Returns: undefined
+      }
+      set_child_status: {
+        Args: {
+          p_actor: string
+          p_profile: string
+          p_status: Database["public"]["Enums"]["profile_status"]
+        }
+        Returns: undefined
+      }
+      set_member_role: {
+        Args: {
+          p_actor: string
+          p_family: string
+          p_member: string
+          p_role: Database["public"]["Enums"]["family_role"]
+        }
+        Returns: undefined
+      }
+      set_profile_managers: {
+        Args: { p_actor: string; p_member_ids: string[]; p_profile: string }
+        Returns: undefined
+      }
+      transfer_adult_profile: {
+        Args: { p_actor: string; p_profile: string; p_to_member: string }
+        Returns: undefined
       }
     }
     Enums: {
