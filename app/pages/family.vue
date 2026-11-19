@@ -96,5 +96,6 @@ function formatDate(iso: string) {
                 </li>
             </ul>
         </section>
+        <FamilyMemberSection v-if="active" :family-id="active.family.id" :is-admin="isAdmin" />
     </main>
 </template>
