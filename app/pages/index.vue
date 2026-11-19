@@ -31,6 +31,9 @@ async function logout() {
     <main class="mx-auto max-w-3xl space-y-6 p-6">
         <header class="flex flex-wrap items-center justify-between gap-3">
             <h1 class="text-3xl font-semibold text-brown">{{ active?.family.name }}</h1>
+            <NuxtLink v-if="active?.role === 'admin'" to="/family" class="text-sm text-terracotta-dark underline">
+                Gérer la famille
+            </NuxtLink>
             <FamilySwitcher />
         </header>
 

@@ -449,6 +449,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      accept_invitation: {
+        Args: { p_first_name: string; p_token_hash: string; p_user_id: string }
+        Returns: Json
+      }
       create_family_with_admin: {
         Args: {
           p_accent_color?: string

@@ -19,7 +19,7 @@ async function onSubmit() {
             : 'E-mail ou mot de passe incorrect.'
         return
     }
-    await navigateTo('/')
+    await navigateTo(useSupabaseCookieRedirect().pluck() || '/')
 }
 </script>
 

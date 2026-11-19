@@ -1,6 +1,9 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
-watch(user, (u) => { if (u) navigateTo('/') }, { immediate: true })
+const redirectInfo = useSupabaseCookieRedirect()
+watch(user, (u) => {
+    if (u) navigateTo(redirectInfo.pluck() || '/')
+}, { immediate: true })
 </script>
 
 <template>
